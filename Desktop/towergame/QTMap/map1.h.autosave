@@ -1,0 +1,14 @@
+#ifndef MAP1_H
+#define MAP1_H
+#include <string>
+#include <map>
+using namespace std;
+
+class map1
+{
+public:
+    map1();
+    
+};
+
+#endif // MAP1_H
