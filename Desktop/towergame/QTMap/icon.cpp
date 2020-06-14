@@ -13,7 +13,7 @@ pair<int,ICON> pairArray[] =
     make_pair(1,ICON(arrow,0,0, 2,1)),
     make_pair(2,ICON(bullet,0,0, 1,1)),
     make_pair(3,ICON(thunder,0,0, 2,3)),
-    make_pair(4,ICON(fireball,3,0, 4,3)),
+    make_pair(4,ICON(fireball,0,4, 3,4)),
     make_pair(5,ICON(missle,0,0, 3, 2)),
     make_pair(6,ICON(smoke,6,0, 2, 2)),
     make_pair(7,ICON(boom,24.5,0, 3, 3)),
@@ -24,8 +24,8 @@ pair<int,ICON> pairArray[] =
 
     make_pair(11,ICON(AT,0,0, 4, 4)),
     make_pair(12,ICON(gun,25,3.5, 3, 2)),
-    make_pair(13,ICON(magicTt,0.2,9.3, 1, 2)),
-    make_pair(14,ICON(magicTf,0.2,12, 1, 2)),
+    make_pair(13,ICON(magicTt,0.2,12, 1, 2)),
+    make_pair(14,ICON(magicTf,0.2,9.3, 1, 2)),
     make_pair(15,ICON(missleW,0,0, 2, 2)),
     make_pair(16,ICON(shield,0,0, 4, 4)),
 

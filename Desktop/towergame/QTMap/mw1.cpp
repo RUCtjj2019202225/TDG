@@ -35,7 +35,7 @@ MW1::MW1(QWidget *parent) :
     timer = new QTimer(this);
     timer->start(1000);
     connect(timer,&QTimer::timeout,[=](){
-        this->MonsterGenerator();
+//        this->MonsterGenerator();
         BattleCry();//攻击检测
         fight1();//fight1存在加攻速，需重建timer允许刷新
         fight2();
@@ -45,7 +45,7 @@ MW1::MW1(QWidget *parent) :
     QTimer* timer0 = new QTimer(this);
     timer0->start(200);
     connect(timer0,&QTimer::timeout,[=](){
-        MonsterMove();
+//        MonsterMove();
         ObjMove();
         update();
     });
@@ -163,7 +163,7 @@ void MW1::Blocked(){
         pm->setBlocked(false);
         pm->setAlart(false);
         for(auto &pa:this->_game.getAllys()){
-            if(pm->getPosX() - pa->getPosX() <= 1 ){
+            if(pm->getPosX() - pa->getPosX() <= 1 && pm->getPosY() == pa->getPosY()){
                 pm->setBlocked(true);
                 pm->setAlart(true);
                 pa->setBlood(pa->getBlood() - pm->getAttack());
@@ -218,6 +218,10 @@ void MW1::BattleCry(){
             }
             break;
         case magicTf:
+            if(!p->getAims().empty())
+                p->setAlart(true);
+            else
+                p->setAlart(false);
             for(auto &pm:this->_game.getMonsters()){
                 if(DistBetPoints(p->getPosX()+0.5*Cluster_SIZE,p->getPosY()+0.5*Cluster_SIZE,pm->getPosX()+0.5*Cluster_SIZE,pm->getPosY()+0.5*Cluster_SIZE) < p->getAttackR()){
                     p->addAims(pm);
@@ -282,7 +286,7 @@ void MW1::fight2(){
 
 int MW1::ifCollide(RPGObj*p){
     for(auto &pm:this->_game.getMonsters()){
-        if(pm->getPosX() - p->getPosX() < p->getRange() && pm->getPosY() - p->getPosY() < p->getRange()){
+        if(pm->getPosX() - p->getPosX() < p->getRange() && pm->getPosY() == p->getPosY()){
             pm->setBlood(pm->getBlood() - p->getDamage());
             if(pm->getBlood() < 1e-5){
                 for(auto &pa:this->_game.getAllys()){
@@ -296,7 +300,7 @@ int MW1::ifCollide(RPGObj*p){
             p->setIfCollide(true);
         }
     }
-
+    update();
     if(p->getIfCollide()){
         return 1;
     }
@@ -306,17 +310,18 @@ int MW1::ifCollide(RPGObj*p){
 
 void MW1::ObjMove(){
     for(auto &p:this->_game.getObjects()){
-        if(ifCollide(p))
+        if(ifCollide(p)){
             this->_game.eraseObj(p);
+            update();
+        }
         else{
-            if(p->getObjType()<3)
+            if(p->getObjType()<=2)
                 p->MoveNextX();
-            else if(p->getObjType()>2&&p->getObjType()<6)
+            else if(p->getObjType()>=3&&p->getObjType()<=5)
                 p->MoveNextY();
             if(p->getPosX()>13 || p->getPosY()>9)
                 this->_game.eraseObj(p);
         }
-
     }
 }
 

@@ -101,7 +101,7 @@ void RPGChar::initChar(int type)
             this->_attack = 1;
             this->_attack_speed =1;
             this->_attack_type = thunder;
-            this->_attack_r = 1;
+            this->_attack_r = 6;
             break;
         case magicTf:
             all.load(":/pics/magicT.png");
@@ -111,7 +111,7 @@ void RPGChar::initChar(int type)
             this->_attack = 1;
             this->_attack_speed =1;
             this->_attack_type = fireball;
-            this->_attack_r = 1;
+            this->_attack_r = 6;
             break;
         case missleW:
             all.load(":/pics/missleW.png");

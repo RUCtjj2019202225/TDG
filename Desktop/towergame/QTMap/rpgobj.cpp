@@ -11,7 +11,7 @@ void RPGObj::initObj(int type)
     this->_icon = ICON::findICON(type);
     this->_pos_x = 0;
     this-> _pos_y = 0;
-    this->_range = 1e-3;
+    this->_range = 0.1;
     this->_speed = 3;
 
     QImage all;
@@ -127,7 +127,7 @@ void RPGObj::MoveNextY(){//还未完成
     if(this->_pos_y*Map::Cluster_SIZE + dis_perupdate_1*this->_speed>8*Map::Cluster_SIZE)
         return;
     else
-        this->_pos_x += (dis_perupdate_1*this->_speed)/Map::Cluster_SIZE;
+        this->_pos_y += (dis_perupdate_1*this->_speed)/Map::Cluster_SIZE;
 }
 
 void RPGObj::onErase(){

@@ -29,8 +29,8 @@ void World::initWorld(string map){
                           {0,0,0,0,0,0,0,0,0,0,0,0,0},
                          };
 //战场14*10 = map（bg._land）12*8（Cluster_SIZE） +右面loading area1*16，三面景观
-    this->CharGenerate(12,1,4);
-    this->CharGenerate(23,12,4);
+    this->CharGenerate(14,1,4);
+    this->CharGenerate(23,3,4);
 
     QMediaPlayer * player = new QMediaPlayer;
     player->setMedia(QUrl("qrc:/sounds/hdl.mp3"));
