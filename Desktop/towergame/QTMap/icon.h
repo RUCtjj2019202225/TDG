@@ -2,10 +2,10 @@
 #define ICON_H
 #include <string>
 #include <map>
+#include <QFile>
+#include <QTextStream>
+#include <QDateTime>
 using namespace std;
-
-enum Charactor{scorpion = 1,soldier,jaguar,dragon};
-enum Object{player = 1,stone,fruit,fireball};
 
 
 //将一类图标定位到素材图片上的具体区域
@@ -16,19 +16,20 @@ public:
     static map<int,ICON> GAME_ICON_SET;
         //确定各类物体子素材图片的位置，高、宽等数据
     static ICON findICON(int type);
+    static void LOG(QString strMsg);
         //根据物体类型名找到图标
 
     ICON(){}
-    ICON(string name, int x, int y, int w, int h);
-    string getTypeName() const{return this->typeName;}
-    int getSrcX() const{return this->srcX;}
-    int getSrcY() const{return this->srcY;}
-    int getWidth() const{return this->width;}
-    int getHeight() const{return this->height;}
+    ICON(int name, float x, float y, float w, float h);
+    int getType() const{return this->type;}
+    float getSrcX() const{return this->srcX;}
+    float getSrcY() const{return this->srcY;}
+    float getWidth() const{return this->width;}
+    float getHeight() const{return this->height;}
 
 private:
-    string typeName;
-    int srcX, srcY, width, height;
+    int type;
+    float srcX, srcY, width, height;
 
 };
 

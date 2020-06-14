@@ -2,6 +2,37 @@
     <qresource prefix="/pics">
         <file>TileB.png</file>
         <file>7.png</file>
+        <file>AT1.png</file>
+        <file>AT2.png</file>
+        <file>AT3.png</file>
+        <file>boom.png</file>
+        <file>boss0.png</file>
+        <file>boss1.png</file>
+        <file>boss2.png</file>
+        <file>boss3.png</file>
+        <file>boss4.png</file>
+        <file>boss5.png</file>
+        <file>boss6.png</file>
+        <file>bullet.png</file>
+        <file>gun.png</file>
+        <file>magicT.png</file>
+        <file>mark.png</file>
+        <file>mcar1.png</file>
+        <file>mcar2.png</file>
+        <file>mcar3.png</file>
+        <file>missleW.png</file>
+        <file>moto.png</file>
+        <file>shield0.png</file>
+        <file>shield1.png</file>
+        <file>shield2.png</file>
+        <file>shield3.png</file>
+        <file>smoke.png</file>
+        <file>thunder.png</file>
+        <file>arrow.png</file>
+        <file>fireball.png</file>
+        <file>missleup.png</file>
+        <file>missled.png</file>
+        <file>castle.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>2953.mp3</file>
@@ -9,4 +40,5 @@
         <file>crash.mp3</file>
     </qresource>
     <qresource prefix="/dizhuan"/>
+    <qresource prefix="/"/>
 </RCC>

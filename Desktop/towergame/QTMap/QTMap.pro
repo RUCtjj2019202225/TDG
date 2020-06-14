@@ -32,9 +32,7 @@ SOURCES += main.cpp\
     icon.cpp \
     rpgchar.cpp \
     rpgobj.cpp \
-    player.cpp \
-    world.cpp \
-    fruit.cpp
+    world.cpp
 
 HEADERS  += \
     background.h \
@@ -44,9 +42,7 @@ HEADERS  += \
     icon.h \
     rpgchar.h \
     rpgobj.h \
-    player.h \
-    world.h \
-    fruit.h
+    world.h
 
 FORMS    += \
     mw1.ui
