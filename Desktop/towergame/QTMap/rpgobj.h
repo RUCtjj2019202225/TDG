@@ -21,12 +21,16 @@ public:
     int getWidth() const{return this->_icon.getWidth();}
     int getObjType() const{return this->_icon.getType();}//返回类名
 
-    void setPosX(int x);
-    void setPosY(int y);
+    void setPosX(float x){this->_pos_x = x;}
+    void setPosY(float y){this->_pos_y = y;}
+    void setTarPosX(float tx){this->tar_pos_x = tx;}
+    void setTarPosY(float ty){this->tar_pos_y = ty;}
     void setIfCollide(int If){this->ifCollide = If;}
 
     int getPosX() const{return this->_pos_x;}
     int getPosY() const{return this->_pos_y;}
+    float getTarPosX(){return this->tar_pos_x;}
+    float getTarPosY(){return this->tar_pos_y;}
     int getDamage() const{return this->_damage;}
     float getRange() const{return this->_range;}
     int getSpeed() const{return this->_speed;}
@@ -42,6 +46,7 @@ protected:
 
     QImage _pic;
     float _pos_x, _pos_y;//该物体在游戏中当前位置（左上角坐标）
+    float tar_pos_x = 0, tar_pos_y = 0;
     ICON _icon;//可以从ICON中获取对象的素材，尺寸等信息
     float _range;
     int _damage;

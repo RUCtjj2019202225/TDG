@@ -10,7 +10,8 @@ void RPGChar::initChar(int type)
     this->_icon = ICON::findICON(type);
     this->_pos_x = 9;
     this-> _pos_y = 0;
-    this->_speed = 1;
+    this->_normalSpeed = 1;
+    this->_speed = this->_normalSpeed;
 
     QImage all;
     switch (type)
@@ -82,6 +83,7 @@ void RPGChar::initChar(int type)
             this->_attack_speed =1;
             this->_attack_type = arrow;
             this->_attack_r = 100;
+            this->_max_grade = 2;
             break;
         case gun:
             all.load(":/pics/gun.png");
@@ -92,6 +94,7 @@ void RPGChar::initChar(int type)
             this->_attack_speed =1;
             this->_attack_type = bullet;
             this->_attack_r = 100;
+            this->_max_grade = 2;
             break;
         case magicTt:
             all.load(":/pics/magicT.png");
@@ -130,7 +133,7 @@ void RPGChar::initChar(int type)
             this->_max_blood = 2;
             this->_now_blood = this->_max_blood;
             this->_attack = 1;
-            this->_attack_speed =1;
+            this->_attack_speed =0;
             this->_attack_type = none;
             this->_attack_r = 0;
             break;
@@ -157,8 +160,8 @@ void RPGChar::show(QPainter * pa){
 }
 
 void RPGChar::MoveNextX(){
-    float dis_perupdate_1 = Map::Cluster_SIZE*0.1;
-    if(this->_pos_x*Map::Cluster_SIZE-dis_perupdate_1*this->_speed<1*Map::Cluster_SIZE)
+    float dis_perupdate_1 = Map::Cluster_SIZE*0.05;
+    if(this->_pos_x*Map::Cluster_SIZE-dis_perupdate_1*this->_speed<0.5*Map::Cluster_SIZE)
         return;
     else
         this->_pos_x -= (dis_perupdate_1*this->_speed)/Map::Cluster_SIZE;

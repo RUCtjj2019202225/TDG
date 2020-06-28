@@ -18,9 +18,9 @@ pair<int,ICON> pairArray[] =
     make_pair(6,ICON(smoke,6,0, 2, 2)),
     make_pair(7,ICON(boom,24.5,0, 3, 3)),
 
-    make_pair(8,ICON(repair,4,9, 1, 1)),
-    make_pair(9,ICON(upgrade,3,6, 1, 1)),
-    make_pair(10,ICON(destroy,1,13, 1, 2)),
+    make_pair(8,ICON(repair,2,0, 2, 2)),
+    make_pair(9,ICON(upgrade,0,0, 2, 2)),
+    make_pair(10,ICON(destroy,6.5,0, 2, 2)),
 
     make_pair(11,ICON(AT,0,0, 4, 4)),
     make_pair(12,ICON(gun,25,3.5, 3, 2)),

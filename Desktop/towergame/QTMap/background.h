@@ -16,6 +16,7 @@ public:
     string getTypeName() const{return this->typeName;}
     void initbg(string type);
     void show(QPainter * pa);
+    vector<vector<int> >& getLand(){return this->_land;}
     int getWidth() const{return this->width;}
     int getHeight() const{return this->height;}
 protected:

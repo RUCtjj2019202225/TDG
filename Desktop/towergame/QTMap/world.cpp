@@ -7,6 +7,7 @@
 #include<iostream>
 using namespace std;
 
+enum cost{AT1_2=50,gun1_2=50,AT0_1=100,gun0_1=100,magicTt0_1=150,magicTf0_1=200,missleW0_1=250,shield0_1=100,repair2=50};
 enum icon{none=0,arrow,bullet,thunder,fireball,missle,smoke,boom,repair,upgrade,destroy,
             AT = 11,gun,magicTt,magicTf,missleW,shield,
             moto=21,mcar1,mcar2,mcar3,boss};
@@ -29,8 +30,6 @@ void World::initWorld(string map){
                           {0,0,0,0,0,0,0,0,0,0,0,0,0},
                          };
 //战场14*10 = map（bg._land）12*8（Cluster_SIZE） +右面loading area1*16，三面景观
-    this->CharGenerate(14,1,4);
-    this->CharGenerate(23,3,4);
 
     QMediaPlayer * player = new QMediaPlayer;
     player->setMedia(QUrl("qrc:/sounds/hdl.mp3"));
@@ -58,11 +57,13 @@ void World::CharGenerate(int type, int x, int y){
     }
 }
 
-void World::ObjGenerate(int type, int x, int y){
+void World::ObjGenerate(int type, float x, float y, float tx , float ty){
     RPGObj *p = new RPGObj;
     p->initObj(type);
     p->setPosX(x);
     p->setPosY(y);
+    p->setTarPosX(tx);
+    p->setTarPosY(ty);
     if(type>0&&type<8){
         this->_objs.push_back(p);
     }
@@ -101,21 +102,25 @@ void World::showmonster(QPainter * pa){
 
 void World::eraseObj(RPGObj*p){
     p->onErase();
-    delete (p);
     vector<RPGObj *>::iterator it = find(_objs.begin(), _objs.end(), p);
     _objs.erase(it);
+    delete p;
 }
 
 void World::eraseChar(RPGChar *p){
-    //p->onErase();
-    delete (p);
+    p->onErase();
     if(p->getCharType()>10&&p->getCharType()<20){
         vector<RPGChar *>::iterator it = find(_allys.begin(), _allys.end(), p);
+        this->battel_field[p->getPosX()-1][p->getPosY()-1] = 0;
         _allys.erase(it);
+
     }
     else if(p->getCharType()>20&&p->getCharType()<30){
         vector<RPGChar *>::iterator it = find(_monsters.begin(), _monsters.end(), p);
         _monsters.erase(it);
+        this->money += RewardMoney;
+
     }
+    delete p;
 }
 

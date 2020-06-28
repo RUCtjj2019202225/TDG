@@ -30,6 +30,7 @@ public:
         if (MW1->objectName().isEmpty())
             MW1->setObjectName(QString::fromUtf8("MW1"));
         MW1->resize(1023, 937);
+        MW1->setMaximumSize(QSize(1023, 937));
         centralwidget = new QWidget(MW1);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MW1->setCentralWidget(centralwidget);

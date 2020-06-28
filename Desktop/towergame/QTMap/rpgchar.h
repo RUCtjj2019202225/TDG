@@ -25,15 +25,24 @@ public:
 
     void setPosX(int x){this->_pos_x=x;}
     void setPosY(int y){this->_pos_y=y;}
-    void setBlood(int blood){this->_now_blood = blood;}
+    void setBlood(float blood){this->_now_blood = blood;}
+    void setSpeed(float speed){this->_speed = speed;}
+    void setGrade(int grade){this->_now_blood = grade;}
+    void setAttactkSpeed(int speed){this->_attack_speed = speed;}
     void setAlart(int alart){this->_alart = alart;}
     void setBlocked(int If){this->_blocked = If;}
     bool getAlart(){return this->_alart;}
     int getPosX() const{return this->_pos_x;}
     int getPosY() const{return this->_pos_y;}
     int getAttack() const{return this->_attack;}
+    int getAttackSpeed() const{return this->_attack_speed;}
     int getAttackR() const{return this->_attack_r;}
-    int getBlood() const{return this->_now_blood;}
+    float getBlood() const{return this->_now_blood;}
+    float getSpeed() const{return this->_speed;}
+    float getNormalSpeed() const{return this->_normalSpeed;}
+    int getMaxBlood() const{return this->_max_blood;}
+    int getGrade()const{return this->_grade;}
+    int getMaxGrade()const{return this->_max_grade;}
     bool ifblocked() const{return this->_blocked;}
     bool ifpaused() const{return this->_paused;}
     bool ifmoving() const{return this->_moving;}
@@ -58,12 +67,15 @@ protected:
     ICON _icon;//可以从ICON中获取对象的素材，尺寸等信息
 
     int _max_blood;
-    int _now_blood;
-    int _speed;
+    float _now_blood;
+    float _normalSpeed;
+    float _speed;
     int _attack;
     int _attack_speed;
     int _attack_type;
     int _attack_r;
+    int _grade = 1;
+    int _max_grade = 1;
 
     bool _blocked = false;
     bool _paused = false;
